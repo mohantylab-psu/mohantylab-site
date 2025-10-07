@@ -22,7 +22,20 @@ const Join = () => {
         "Training in advanced data science methods", 
         "Collaborative research environment",
         "Opportunities to present at conferences"
-      ]
+      ],
+      applicationInfo: {
+        sections: [
+          {
+            label: "Current Penn State students",
+            text: "Email me with a description of your research interests and a CV."
+          },
+          {
+            label: "Incoming/prospective students",
+            text: "Check graduate programs here: ",
+            link: "https://www.huck.psu.edu/graduate-programs"
+          }
+        ]
+      }
     },
     {
       title: "Postdocs",
@@ -39,7 +52,19 @@ const Join = () => {
         "Research independence and mentorship opportunities", 
         "Access to state-of-the-art facilities",
         "Career development support"
-      ]
+      ],
+      applicationInfo: {
+        sections: [
+          {
+            text: "Email me with a one-page description of your research, a CV, and a sample publication."
+          },
+          {
+            text: "I encourage postdoc applicants to explore fellowship opportunities at ",
+            link: "https://postdoc.psu.edu/resources/external-funding/",
+            additionalText: " Please reach out to me before for discussing proposal ideas :)"
+          }
+        ]
+      }
     },
     {
       title: "Undergraduate Researchers",
@@ -56,7 +81,14 @@ const Join = () => {
         "Mentorship from graduate students and postdocs",
         "Potential for independent projects",
         "Letters of recommendation for future applications"
-      ]
+      ],
+      applicationInfo: {
+        sections: [
+          {
+            text: "Email me with a description of your research interests and a CV. Open to students interested in a summer internship."
+          }
+        ]
+      }
     }
   ];
 
@@ -157,6 +189,30 @@ const Join = () => {
                     </ul>
                   </div>
                 </div>
+
+                {position.applicationInfo && (
+                  <div className="mt-8 bg-accent/5 border border-accent/20 rounded-lg p-6">
+                    <h4 className="text-xl font-semibold text-accent mb-4">How to Apply:</h4>
+                    <div className="space-y-3 text-foreground/90">
+                      {position.applicationInfo.sections.map((section, secIndex) => (
+                        <p key={secIndex}>
+                          {section.label && <strong>{section.label}:</strong>} {section.text}
+                          {section.link && (
+                            <a 
+                              href={section.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-accent hover:underline font-semibold"
+                            >
+                              {section.link}
+                            </a>
+                          )}
+                          {section.additionalText && section.additionalText}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 <div className="mt-8 text-center">
                   <Button 

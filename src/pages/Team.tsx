@@ -25,19 +25,66 @@ const Team = () => {
       title: "Graduate Students",
       icon: "🎓",
       color: "secondary", 
-      members: []
+      members: [],
+      applicationInfo: (
+        <div className="mt-6 bg-secondary/5 border border-secondary/20 rounded-lg p-6 text-left">
+          <h4 className="font-semibold text-lg mb-3 text-secondary">How to Apply:</h4>
+          <p className="mb-2">
+            <strong>Current Penn State students:</strong> email me with a description of your research interests and a CV.
+          </p>
+          <p>
+            <strong>Incoming/prospective students:</strong> check graduate programs here:{' '}
+            <a 
+              href="https://www.huck.psu.edu/graduate-programs" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-secondary hover:underline font-semibold"
+            >
+              https://www.huck.psu.edu/graduate-programs
+            </a>
+          </p>
+        </div>
+      )
     },
     {
       title: "Postdocs",
       icon: "🔬",
       color: "accent",
-      members: []
+      members: [],
+      applicationInfo: (
+        <div className="mt-6 bg-accent/5 border border-accent/20 rounded-lg p-6 text-left">
+          <h4 className="font-semibold text-lg mb-3 text-accent">How to Apply:</h4>
+          <p className="mb-3">
+            Email me with a one-page description of your research, a CV, and a sample publication.
+          </p>
+          <p>
+            I encourage postdoc applicants to explore fellowship opportunities at{' '}
+            <a 
+              href="https://postdoc.psu.edu/resources/external-funding/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-accent hover:underline font-semibold"
+            >
+              https://postdoc.psu.edu/resources/external-funding/
+            </a>
+            . Please reach out to me before for discussing proposal ideas :)
+          </p>
+        </div>
+      )
     },
     {
       title: "Undergraduate Researchers",
       icon: "📚",
       color: "primary",
-      members: []
+      members: [],
+      applicationInfo: (
+        <div className="mt-6 bg-primary/5 border border-primary/20 rounded-lg p-6 text-left">
+          <h4 className="font-semibold text-lg mb-3 text-primary">How to Apply:</h4>
+          <p>
+            Email me with a description of your research interests and a CV. Open to students interested in a summer internship.
+          </p>
+        </div>
+      )
     },
     {
       title: "Alumni",
@@ -293,6 +340,7 @@ const Team = () => {
                     <Badge className={`mt-4 bg-${section.color}/20 text-${section.color} border-${section.color}/30`}>
                       Positions Available
                     </Badge>
+                    {section.applicationInfo && section.applicationInfo}
                   </div>
                 ) : (
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
