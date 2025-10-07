@@ -61,7 +61,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              We are kicking off at the beautiful Penn State University Park campus - right in the heart of Happy Valley! 🌿✨
+              We are kicking off at the beautiful Penn State University Park campus - right in the heart of Happy Valley!
             </motion.p>
 
             {/* Recruitment Section */}
@@ -77,15 +77,12 @@ const Home = () => {
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
                 <div className="flex items-start space-x-3 p-3 rounded-lg bg-primary/5">
-                  <span className="text-2xl flex-shrink-0">🌱</span>
                   <span className="font-medium text-sm sm:text-base">Graduate students ready to grow their research journey</span>
                 </div>
                 <div className="flex items-start space-x-3 p-3 rounded-lg bg-secondary/5">
-                  <span className="text-2xl flex-shrink-0">🔬</span>
                   <span className="font-medium text-sm sm:text-base">Postdocs excited to push boundaries in science</span>
                 </div>
                 <div className="flex items-start space-x-3 p-3 rounded-lg bg-accent/5 sm:col-span-2 lg:col-span-1">
-                  <span className="text-2xl flex-shrink-0">💡</span>
                   <span className="font-medium text-sm sm:text-base">Undergraduates who want to volunteer and get hands-on experience</span>
                 </div>
               </div>
