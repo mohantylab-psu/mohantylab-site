@@ -98,14 +98,14 @@ const Join = () => {
     <div className="relative min-h-screen pt-20 sm:pt-24">
       <MolecularBackground className="opacity-20" />
       
-      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
-          <h1 className="text-5xl md:text-6xl font-display font-bold mb-8 text-gradient-hero">
+          <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 text-gradient-hero">
             Be Part of Our Journey
           </h1>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -119,7 +119,7 @@ const Join = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-20"
+          className="mb-12"
         >
           <Card className="gradient-hero/10 border-primary/20 shadow-glow p-10 text-center">
             <h2 className="text-3xl font-display font-bold mb-6 text-gradient-accent">
@@ -142,7 +142,8 @@ const Join = () => {
         </motion.div>
 
         {/* Open Positions */}
-        <div className="grid gap-8 max-w-6xl mx-auto mb-20">
+                {/* Position Cards */}
+        <div className="grid gap-8 max-w-6xl mx-auto mb-12">
           {positions.map((position, index) => (
             <motion.div
               key={position.title}
@@ -235,7 +236,7 @@ const Join = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-20"
+          className="mb-12"
         >
           <Card className="gradient-card border-accent/20 shadow-molecular p-10">
             <h3 className="text-3xl font-display font-bold mb-8 text-gradient-accent text-center">

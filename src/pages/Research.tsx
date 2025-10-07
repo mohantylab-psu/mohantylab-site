@@ -19,18 +19,18 @@ const Research = () => {
     <div className="relative min-h-screen pt-20 sm:pt-24">
       <MolecularBackground className="opacity-30" />
       
-      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-16 md:mb-20"
+          className="text-center mb-8 sm:mb-10 md:mb-12"
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 sm:mb-8 text-gradient-hero px-2">
             Research Areas
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-4 mb-8">
-            Microbes are the hidden "Wizard of Oz," quietly pulling biochemical levers that shape our metabolism, immunity, appetite, cognition, and even mood. We are pulling back the curtain in our lab to decode those signals—mapping the enzymes, metabolites, and host receptors that explain how microbes influence health and how we can tune that dialogue. We have three main research focus areas: discover, decode, and modulate microbial messages to the host.
+            Microbes are the hidden "Wizard of Oz," quietly pulling biochemical levers that shape our metabolism, immunity, appetite, cognition, and even mood. We are pulling back the curtain in our lab to decode those signals by mapping the enzymes, metabolites, and host receptors that explain how microbes influence health and how we can tune that dialogue. We have three main research focus areas: discover, decode, and modulate microbial messages to the host.
           </p>
           
           <div className="mb-8 flex justify-center scientific-diagram">
@@ -48,7 +48,7 @@ const Research = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-12 sm:mb-16 md:mb-20"
+          className="mb-8 sm:mb-10 md:mb-12"
         >
           <Card className="gradient-card border-primary/10 shadow-glow p-6 sm:p-8 md:p-10">
             <div className="flex flex-col sm:flex-row items-start sm:items-center mb-6 sm:mb-8 space-y-4 sm:space-y-0">
@@ -116,7 +116,7 @@ const Research = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-12 sm:mb-16 md:mb-20"
+          className="mb-8 sm:mb-10 md:mb-12"
         >
           <Card className="gradient-card border-secondary/10 shadow-glow p-6 sm:p-8 md:p-10">
             <div className="flex flex-col sm:flex-row items-start sm:items-center mb-6 sm:mb-8 space-y-4 sm:space-y-0">
@@ -182,7 +182,7 @@ const Research = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-12 sm:mb-16 md:mb-20"
+          className="mb-8 sm:mb-10 md:mb-12"
         >
           <Card className="gradient-card border-accent/10 shadow-glow p-6 sm:p-8 md:p-10">
             <div className="flex flex-col sm:flex-row items-start sm:items-center mb-6 sm:mb-8 space-y-4 sm:space-y-0">

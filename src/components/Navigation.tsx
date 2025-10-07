@@ -16,7 +16,7 @@ const Navigation = () => {
     { id: 'home', label: 'Home', path: '/' },
     { id: 'research', label: 'Research', path: '/research' },
     { id: 'team', label: 'Team', path: '/team' },
-    { id: 'publications', label: 'Publications & Outreach', path: '/publications' },
+    { id: 'publications', label: 'Publications & Media', path: '/publications' },
     { id: 'join', label: 'Join Us', path: '/join' },
   ];
 

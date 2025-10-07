@@ -34,7 +34,7 @@ const Home = () => {
     <div className="relative min-h-screen">      
       {/* Hero Section */}
       <section 
-        className="relative pt-24 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6"
+        className="relative pt-24 sm:pt-32 md:pt-40 pb-8 sm:pb-10 md:pb-12 px-4 sm:px-6"
       >
         <div className="container mx-auto">
           <motion.div
@@ -66,7 +66,7 @@ const Home = () => {
 
             {/* Recruitment Section */}
             <motion.div
-              className="bg-gradient-card/30 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 mb-12 sm:mb-16 border border-primary/10 shadow-glow"
+              className="bg-gradient-card/30 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 mb-8 sm:mb-10 border border-primary/10 shadow-glow"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
@@ -108,8 +108,8 @@ const Home = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6">
-        <div className="container mx-auto">
+      <section className="py-8 sm:py-10 md:py-12 px-4 sm:px-6">
+        <div className="container mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -117,11 +117,11 @@ const Home = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-center mb-8 sm:mb-12 text-gradient-hero px-2 pb-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-center mb-6 sm:mb-8 text-gradient-hero px-2 pb-2">
               Our Mission – Decoding Microbial Messages
             </h2>
             
-            <div className="mb-8 sm:mb-12 flex justify-center scientific-diagram">
+            <div className="mb-6 sm:mb-8 flex justify-center scientific-diagram">
               <img 
                 src={MohantyMissionImg} 
                 alt="Mohanty Lab Mission" 
@@ -129,7 +129,7 @@ const Home = () => {
               />
             </div>
             
-            <div className="gradient-card/20 backdrop-blur-lg rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-card border border-primary/10 mb-12 sm:mb-16">
+            <div className="gradient-card/20 backdrop-blur-lg rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-card border border-primary/10 mb-8 sm:mb-10">
               <div className="prose prose-lg max-w-none text-foreground/90 leading-relaxed space-y-6">
                 <p>
                   At the Mohanty Lab, we see science as a detective's craft - uncovering the hidden conversations between microbes and their host. Just as languages allow us to communicate with each other, microbes living inside us communicate with us using an undiscovered chemical vocabulary with profound consequences for our health and disease.
@@ -171,14 +171,14 @@ const Home = () => {
       </section>
 
       {/* Research Focus Areas */}
-      <section className="py-12 sm:py-16 md:py-20 px-6">
-        <div className="container mx-auto max-w-6xl">
+      <section className="py-8 sm:py-10 md:py-12 px-6">
+        <div className="container mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-12 sm:mb-16"
+            className="text-center mb-8 sm:mb-10"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6 text-gradient-hero">
               At the frontier of host-microbe communication
@@ -223,8 +223,8 @@ const Home = () => {
       </section>
 
       {/* Molecule of the Month */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-8 sm:py-10 md:py-12 px-4 sm:px-6">
+        <div className="container mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}

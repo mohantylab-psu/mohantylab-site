@@ -9,15 +9,25 @@ import Fun2Img from '@/assets/fun_2.png';
 import Fun3Img from '@/assets/fun_3.jpeg';
 import Fun4Img from '@/assets/fun_4.jpeg';
 import Fun5Img from '@/assets/fun_5.jpeg';
+import Fun6Img from '@/assets/fun_6.jpg';
+import Fun7Img from '@/assets/fun_7.jpg';
 import MohantyIpsitaCV from '@/assets/Mohanty_Ipsita_CV.pdf';
+import { useEffect } from 'react';
 
 const Team = () => {
+  // Preload the PI image for immediate rendering
+  useEffect(() => {
+    const img = new Image();
+    img.src = IpsitaMohantyImg;
+  }, []);
   const funImages = [
     { src: Fun1Img, alt: "Lab Fun 1" },
     { src: Fun2Img, alt: "Lab Fun 2" },
     { src: Fun3Img, alt: "Lab Fun 3" },
     { src: Fun4Img, alt: "Lab Fun 4" },
     { src: Fun5Img, alt: "Lab Fun 5" },
+    { src: Fun6Img, alt: "Lab Fun 6" },
+    { src: Fun7Img, alt: "Lab Fun 7" },
   ];
 
   const teamSections = [
@@ -98,14 +108,14 @@ const Team = () => {
     <div className="relative min-h-screen pt-20 sm:pt-24">
       <MolecularBackground className="opacity-20" />
       
-      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-16 md:mb-20"
+          className="text-center mb-8 sm:mb-10 md:mb-12"
         >
-          <h1 className="text-5xl md:text-6xl font-display font-bold mb-8 text-gradient-hero">
+          <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 text-gradient-hero">
             Meet Our Team
           </h1>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -119,7 +129,7 @@ const Team = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-12 sm:mb-16 md:mb-20"
+          className="mb-8 sm:mb-10 md:mb-12"
         >
           <Card className="gradient-card border-primary/10 shadow-glow p-6 sm:p-8 md:p-10">
             <div className="flex items-center mb-6">
@@ -135,6 +145,8 @@ const Team = () => {
                   src={IpsitaMohantyImg} 
                   alt="Dr. Ipsita Mohanty" 
                   className="w-full max-w-xs photo-img mb-4"
+                  loading="eager"
+                  fetchPriority="high"
                 />
                 <h3 className="text-2xl font-bold text-gradient-hero mb-2">Dr. Ipsita Mohanty</h3>
                 <p className="text-primary font-semibold mb-4">Assistant Professor</p>
@@ -236,7 +248,7 @@ const Team = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-12 sm:mb-16 md:mb-20"
+          className="mb-8 sm:mb-10 md:mb-12"
         >
           <Card className="gradient-card border-secondary/10 shadow-glow p-6 sm:p-8 md:p-10">
             <h2 className="text-3xl font-display font-bold text-gradient-hero mb-6">
@@ -265,7 +277,7 @@ const Team = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-12 sm:mb-16 md:mb-20"
+          className="mb-8 sm:mb-10 md:mb-12"
         >
           <Card className="gradient-card border-accent/10 shadow-glow p-6 sm:p-8 md:p-10">
             <h2 className="text-3xl font-display font-bold text-gradient-accent text-center mb-8">
@@ -334,12 +346,12 @@ const Team = () => {
                     <p className="text-xl text-muted-foreground mb-4">
                       We're growing our team!
                     </p>
-                    <p className="text-foreground/80">
+                    <p className="text-foreground/80 mb-4">
                       This section will be updated as we welcome new members to our research family.
                     </p>
-                    <Badge className={`mt-4 bg-${section.color}/20 text-${section.color} border-${section.color}/30`}>
+                    <div className="inline-block mt-4 px-4 py-2 text-sm font-medium text-muted-foreground border border-border/50 rounded-md">
                       Positions Available
-                    </Badge>
+                    </div>
                     {section.applicationInfo && section.applicationInfo}
                   </div>
                 ) : (
@@ -362,7 +374,7 @@ const Team = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="text-center mt-12 sm:mt-16"
         >
           <Card className="gradient-card border-accent/20 shadow-molecular p-10 max-w-3xl mx-auto">
             <h3 className="text-3xl font-display font-bold mb-6 text-gradient-accent">
