@@ -1,0 +1,511 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mohanty Lab Design System - Scientific & Modern */
+/* All colors MUST be HSL for proper theming */
+
+@layer base {
+  :root {
+    /* Light Mode Colors */
+    /* Background: #F8FAFC (HSL: 210 20% 98%) */
+    --background: 210 20% 98%;
+    /* Text: #0F172A (HSL: 222 84% 11%) */
+    --foreground: 222 84% 11%;
+
+    /* Card & Surface Colors */
+    /* Surface: #FFFFFF (HSL: 0 0% 100%) */
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 11%;
+
+    /* Primary: #2563EB (HSL: 217 91% 60%) */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary: #0EA5A8 (HSL: 181 85% 36%) */
+    --secondary: 181 85% 36%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted Surfaces */
+    --muted: 210 40% 96%;
+    --muted-foreground: 222 13% 52%;
+
+    /* Accent: #7C3AED (HSL: 262 83% 58%) */
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Error: #DC2626 (HSL: 0 84% 60%) */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border: #E2E8F0 (HSL: 214 32% 91%) */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
+
+    /* Design Tokens */
+    --radius: 0.75rem;
+    
+    /* Scientific Gradients - Updated for light mode */
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(181 85% 36%) 50%, hsl(262 83% 58%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 96%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(217 91% 60%) 0%, hsl(262 83% 58%) 100%);
+    
+    /* Molecular Animation Colors */
+    --molecule-primary: 217 91% 60%;
+    --molecule-secondary: 181 85% 36%;
+    --molecule-accent: 262 83% 58%;
+    
+    /* Shadows - Updated for light mode */
+    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.2);
+    --shadow-card: 0 10px 30px -5px hsl(222 84% 11% / 0.1);
+    --shadow-molecular: 0 0 20px hsl(181 85% 36% / 0.3);
+    
+    /* Animation Timings */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Particle Animation */
+    --particle-float: 8s ease-in-out infinite;
+    --dna-rotation: 30s linear infinite;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode Colors - Original Scientific Theme */
+    --background: 222 84% 5%;
+    --foreground: 210 100% 98%;
+
+    /* Card & Surface Colors */
+    --card: 222 47% 11%;
+    --card-foreground: 210 100% 98%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 100% 98%;
+
+    /* Scientific Blue Primary */
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 84% 5%;
+    
+    /* Teal Secondary */
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 222 84% 5%;
+
+    /* Muted Surfaces */
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Purple Accent */
+    --accent: 280 100% 70%;
+    --accent-foreground: 222 84% 5%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 100% 98%;
+
+    /* Borders & Inputs */
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 217 91% 60%;
+    
+    /* Scientific Gradients - Dark mode */
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(180 100% 50%) 50%, hsl(280 100% 70%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(222 47% 11%) 0%, hsl(217 32% 17%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(217 91% 60%) 0%, hsl(280 100% 70%) 100%);
+    
+    /* Molecular Animation Colors - Dark mode */
+    --molecule-primary: 217 91% 60%;
+    --molecule-secondary: 180 100% 50%;
+    --molecule-accent: 280 100% 70%;
+    
+    /* Shadows with Scientific Glow - Dark mode */
+    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.3);
+    --shadow-card: 0 10px 30px -5px hsl(222 84% 5% / 0.5);
+    --shadow-molecular: 0 0 20px hsl(180 100% 50% / 0.4);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* Smooth theme transitions */
+  :root {
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Smooth transitions for specific themed elements only */
+  .card,
+  .button,
+  [role="button"],
+  nav,
+  header,
+  footer {
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.3s;
+  }
+
+  /* Preserve animation timing for specific elements */
+  [class*="animate-"],
+  .transition-smooth,
+  .transition-bounce {
+    transition-duration: 0.4s !important;
+  }
+}
+
+@layer components {
+  /* Scientific Component Styles */
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+    will-change: auto;
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-molecular {
+    box-shadow: var(--shadow-molecular);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  /* Molecular Animation Keyframes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-rotate-slow {
+    animation: rotate-slow 20s linear infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  /* Scientific Typography */
+  .text-gradient-hero {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Mobile-first responsive utilities */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Better mobile touch targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Responsive text sizing */
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-responsive {
+    @apply text-base sm:text-lg;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  .text-responsive-3xl {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+  }
+}
+
+/* Custom Keyframe Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px hsl(217 91% 60% / 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 40px hsl(217 91% 60% / 0.6);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceGentle {
+  0%, 100% { 
+    transform: translateY(0);
+  }
+  50% { 
+    transform: translateY(-10px);
+  }
+}
+
+/* Theme-aware Image Styles */
+/* 
+  These classes handle images with dark text/graphics that need to be inverted in dark mode.
+  
+  Usage Guide:
+  - .scientific-diagram: For scientific diagrams with text/labels on light backgrounds
+  - .molecule-img: For molecular structure images with dark bonds/atoms on light backgrounds  
+  - .research-icon: For icon images with dark elements
+  - .photo-img: For photographs and portraits (no inversion, just styling)
+  - .dark-text-image: Generic utility for any image with dark text that needs inversion
+  - .adaptive-text-image: For images where you want partial inversion to preserve some colors
+  
+  How it works:
+  In dark mode, these classes apply:
+    filter: invert(1) hue-rotate(180deg) saturate(1.2) brightness(1.1)
+  
+  - invert(1): Flips all colors (black→white, white→black)
+  - hue-rotate(180deg): Rotates colors back to similar hues after inversion
+  - saturate(1.2): Boosts color saturation for vibrancy
+  - brightness(1.1): Slightly brightens for better dark mode visibility
+*/
+@layer utilities {
+  /* Base image container for all scientific/diagram images */
+  .theme-aware-img {
+    @apply transition-all duration-300;
+  }
+  
+  /* Light mode: Add subtle background and adjust images for better visibility */
+  :root .theme-aware-img {
+    background: linear-gradient(145deg, hsl(0 0% 100% / 0.9), hsl(210 40% 98% / 0.9));
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+  
+  :root .theme-aware-img img {
+    filter: contrast(1.05) brightness(0.98);
+  }
+  
+  /* Dark mode: Keep original styling */
+  .dark .theme-aware-img {
+    background: transparent;
+    padding: 0;
+  }
+  
+  .dark .theme-aware-img img {
+    filter: none;
+  }
+  
+  /* Scientific diagrams with white/light backgrounds */
+  .scientific-diagram {
+    @apply transition-all duration-300;
+  }
+  
+  :root .scientific-diagram {
+    background: linear-gradient(145deg, hsl(210 40% 98%), hsl(217 91% 97%));
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px hsl(217 91% 60% / 0.08);
+  }
+  
+  :root .scientific-diagram img {
+    filter: contrast(1.1) brightness(0.95) saturate(1.1);
+    mix-blend-mode: darken;
+  }
+  
+  .dark .scientific-diagram {
+    background: linear-gradient(145deg, hsl(222 47% 11%), hsl(217 32% 17%));
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px hsl(217 91% 60% / 0.15);
+  }
+  
+  .dark .scientific-diagram img {
+    /* Invert colors to make dark text light and light backgrounds dark */
+    filter: invert(1) hue-rotate(180deg) saturate(1.2) brightness(1.1);
+    mix-blend-mode: normal;
+  }
+  
+  /* Logo adjustments */
+  .logo-img {
+    @apply transition-all duration-300;
+  }
+  
+  :root .logo-img {
+    filter: contrast(1.1) brightness(0.95);
+  }
+  
+  .dark .logo-img {
+    filter: brightness(1.1);
+  }
+  
+  /* Photos and portraits */
+  .photo-img {
+    @apply transition-all duration-300 rounded-xl shadow-lg;
+  }
+  
+  :root .photo-img {
+    box-shadow: 0 10px 30px hsl(222 84% 11% / 0.15);
+  }
+  
+  .dark .photo-img {
+    box-shadow: 0 10px 30px hsl(217 91% 60% / 0.2);
+  }
+  
+  /* Molecular structure images */
+  .molecule-img {
+    @apply transition-all duration-300;
+  }
+  
+  :root .molecule-img {
+    background: linear-gradient(135deg, hsl(210 40% 99%), hsl(217 91% 98%));
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px hsl(217 91% 60% / 0.1);
+  }
+  
+  :root .molecule-img img {
+    filter: contrast(1.08) brightness(0.96);
+  }
+  
+  .dark .molecule-img {
+    background: linear-gradient(135deg, hsl(222 47% 11%), hsl(217 32% 17%));
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px hsl(217 91% 60% / 0.15);
+  }
+  
+  .dark .molecule-img img {
+    /* Invert colors to make dark text/structures light */
+    filter: invert(1) hue-rotate(180deg) saturate(1.2) brightness(1.1);
+  }
+  
+  /* Research focus icons */
+  .research-icon {
+    @apply transition-all duration-300;
+  }
+  
+  :root .research-icon {
+    filter: drop-shadow(0 2px 8px hsl(217 91% 60% / 0.15));
+  }
+  
+  .dark .research-icon {
+    /* Invert colors to make dark text light, then add glow */
+    filter: invert(1) hue-rotate(180deg) saturate(1.2) brightness(1.1) drop-shadow(0 4px 12px hsl(217 91% 60% / 0.3));
+  }
+  
+  /* Generic dark-text-image utility class for any image with dark text on light background */
+  .dark-text-image {
+    @apply transition-all duration-300;
+  }
+  
+  :root .dark-text-image {
+    /* No filter in light mode - text is already dark and readable */
+    filter: none;
+  }
+  
+  .dark .dark-text-image {
+    /* Invert the image so dark text becomes light and light background becomes dark */
+    filter: invert(1) hue-rotate(180deg) saturate(1.1) brightness(1.05);
+  }
+  
+  /* For images where you want to preserve colors but still make text readable */
+  .adaptive-text-image {
+    @apply transition-all duration-300;
+  }
+  
+  :root .adaptive-text-image {
+    filter: contrast(1.05);
+  }
+  
+  .dark .adaptive-text-image {
+    /* Lighter inversion that attempts to preserve some original colors */
+    filter: invert(0.95) hue-rotate(180deg) brightness(1.1);
+  }
+}
