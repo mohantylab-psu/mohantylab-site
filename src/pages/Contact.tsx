@@ -15,6 +15,7 @@ import {
 import MolecularBackground from '@/components/MolecularBackground';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,16 +24,82 @@ const Contact = () => {
     position: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // For now, just show a success message
-    toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    setFormData({ name: '', email: '', position: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      // EmailJS configuration from environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      // Validate environment variables are set
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration is missing. Please check your .env file.');
+      }
+
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        position: formData.position,
+        message: formData.message,
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+
+      // Success notification
+      toast({
+        title: "✅ Message sent successfully!",
+        description: "We'll get back to you as soon as possible. Thank you for your interest!",
+        duration: 5000,
+      });
+
+      // Clear form
+      setFormData({ name: '', email: '', position: '', message: '' });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      
+      const emailError = error as { status?: number; text?: string; message?: string };
+      console.error('Error details:', {
+        status: emailError?.status,
+        text: emailError?.text,
+        message: emailError?.message
+      });
+      
+      // Determine error message based on status code
+      let errorDescription = "Please try again or contact us directly at imm5615@psu.edu";
+      
+      if (emailError?.status === 412) {
+        errorDescription = "Configuration error. Please verify your EmailJS template variables match: from_name, from_email, position, message, to_email";
+      } else if (emailError?.status === 401) {
+        errorDescription = "Invalid API credentials. Please check your EmailJS Public Key.";
+      } else if (emailError?.status === 404) {
+        errorDescription = "Service or Template not found. Please check your Service ID and Template ID.";
+      } else if (emailError?.text) {
+        errorDescription = emailError.text;
+      }
+      
+      // Error notification
+      toast({
+        title: "❌ Failed to send message",
+        description: errorDescription,
+        variant: "destructive",
+        duration: 7000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -145,9 +212,16 @@ const Contact = () => {
 
                 <Button
                   type="submit"
-                  className="w-full gradient-accent hover:shadow-glow transition-all duration-300 font-semibold py-3 text-lg"
+                  disabled={isSubmitting}
+                  className="w-full gradient-accent hover:shadow-glow transition-all duration-300 font-semibold py-3 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message 📧
+                  {isSubmitting ? (
+                    <>
+                      <span className="animate-pulse">Sending...</span> ⏳
+                    </>
+                  ) : (
+                    <>Send Message 📧</>
+                  )}
                 </Button>
               </form>
             </Card>
