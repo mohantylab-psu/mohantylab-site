@@ -40,10 +40,10 @@ const Team = () => {
         <div className="mt-6 bg-secondary/5 border border-secondary/20 rounded-lg p-6 text-left">
           <h4 className="font-semibold text-lg mb-3 text-secondary">How to Apply:</h4>
           <p className="mb-2">
-            <strong>Current Penn State students:</strong> email me with a description of your research interests and a CV.
+            <strong>Current Penn State students:</strong> Email me with a description of your research interests and a CV.
           </p>
           <p>
-            <strong>Incoming/prospective students:</strong> check graduate programs here:{' '}
+            <strong>Incoming/prospective students:</strong> Check graduate programs here:{' '}
             <a 
               href="https://www.huck.psu.edu/graduate-programs" 
               target="_blank" 
@@ -77,7 +77,7 @@ const Team = () => {
             >
               https://postdoc.psu.edu/resources/external-funding/
             </a>
-            . Please reach out to me before for discussing proposal ideas :)
+            . Please reach out to me beforehand to discuss proposal ideas.
           </p>
         </div>
       )
@@ -119,7 +119,7 @@ const Team = () => {
             Meet Our Team
           </h1>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Decoding the hidden language of microbes to improve human health
+            Decoding the hidden language of microbes to improve human health.
           </p>
         </motion.div>
 
@@ -186,13 +186,13 @@ const Team = () => {
               
               <div className="md:col-span-2 prose prose-lg max-w-none text-foreground/90 leading-relaxed space-y-4">
                 <p>
-                  Ipsita Mohanty is an Assistant Professor of Pharmacology in the Department of Veterinary and Biomedical Sciences and Department of Nutritional Sciences at Penn State University (University Park), where she leads the Mohanty Lab. Her group decodes how the gut microbiome communicates with the host by discovering the enzymes and metabolites that convey these messages—and by mapping how these signals impact human health.
+                  Ipsita Mohanty is an Assistant Professor of Pharmacology in the Department of Veterinary and Biomedical Sciences and the Department of Nutritional Sciences at Penn State University (University Park), where she leads the Mohanty Lab. Her group decodes how the gut microbiome communicates with the host by discovering the enzymes and metabolites that convey these messages—and by mapping how these signals impact human health.
                 </p>
                 <p>
                   Trained at the interface of biochemistry, molecular biology, and data science, Dr. Mohanty integrates mass spectrometry-driven metabolomics, proteomics, and computational mining to uncover previously unknown microbial enzymes and specialized metabolites (including bile acids) that modulate host pathways.
                 </p>
                 <p>
-                  She completed her integrated bachelor's and master's degrees in Chemistry from the Indian Institute of Technology, Kharagpur, in India. She earned her Ph.D. in Chemistry from Georgia Institute of Technology under the supervision of Dr. Neha Garg and Dr. Vinayak Agarwal. She completed her postdoctoral training in the lab of Dr. Pieter Dorrestein at the University of California, San Diego.
+                  She completed her integrated Bachelor's and Master's degrees in Chemistry from the Indian Institute of Technology, Kharagpur, in India. She earned her Ph.D. in Chemistry from the Georgia Institute of Technology under the supervision of Dr. Neha Garg and Dr. Vinayak Agarwal. She completed her postdoctoral training in the lab of Dr. Pieter Dorrestein at the University of California, San Diego.
                 </p>
                 <p>
                   Her lab pairs large-scale repository searches with in vitro/in vivo experiments to transition from association to mechanism, enabling the discovery of biomarkers and therapeutics.
@@ -203,7 +203,7 @@ const Team = () => {
                   <ul className="space-y-3">
                     <li className="flex items-start space-x-3">
                       <span className="text-primary font-bold">Discover:</span>
-                      <span>Repository-scale mining (GNPS/MassIVE), untargeted LC-MS/MS, and in silico annotation to expand the atlas of microbially modified metabolites and their enzymes.</span>
+                      <span>Repository-scale mining (GNPS/MassIVE), untargeted LC-MS/MS, and in silico annotation to expand the atlas of microbially-modified metabolites and their enzymes.</span>
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="text-primary font-bold">Decode:</span>
@@ -225,7 +225,7 @@ const Team = () => {
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="text-accent">🏆</span>
-                      <span><strong>Elected Co-chair</strong>, Gordon Research Seminar (GRS) Metabolomics and Human Health, 2027</span>
+                      <span><strong>Elected Co-Chair</strong>, Gordon Research Seminar (GRS) Metabolomics and Human Health, 2027</span>
                     </li>
                     <li className="flex items-start space-x-3">
                       <span className="text-accent">🏆</span>
@@ -265,7 +265,7 @@ const Team = () => {
             
             <div className="prose prose-lg max-w-none text-foreground/90 leading-relaxed">
               <p>
-                <strong>Mentoring Philosophy (E-S-I-A):</strong> I lead with <strong>Enthusiasm</strong> - curiosity, energy, and a culture that celebrates progress, not perfection. I am <strong>Student-centered</strong>: trainees co-design an Individual Development Plan, align projects with their goals, and receive transparent expectations on authorship, data practices, and timelines. My training is <strong>Integrative</strong> - combining mass spectrometry, microbiology, computation, and communication - through scaffolded independence, peer mentoring, and open, reproducible science. And I stay <strong>Adaptive</strong>: weekly 1:1s, rapid feedback loops, and quarterly goal reviews enable me to adjust scope, support, and pace as needs change, while maintaining psychological safety and inclusion. The aim is simple - help each person grow from learner to independent scientist who can discover, decode, and modulate microbial messages to improve human health.
+                <strong>Mentoring Philosophy (E-S-I-A):</strong> I lead with <strong>Enthusiasm</strong>—curiosity, energy, and a culture that celebrates progress, not perfection. I am <strong>Student-centered</strong>: trainees co-design an Individual Development Plan, align projects with their goals, and receive transparent expectations on authorship, data practices, and timelines. My training is <strong>Integrative</strong>—combining mass spectrometry, microbiology, computation, and communication—through scaffolded independence, peer mentoring, and open, reproducible science. And I stay <strong>Adaptive</strong>: weekly 1:1s, rapid feedback loops, and quarterly goal reviews enable me to adjust scope, support, and pace as needs change, while maintaining psychological safety and inclusion. The aim is simple—help each person grow from learner to independent scientist who can discover, decode, and modulate microbial messages to improve human health.
               </p>
             </div>
           </Card>
