@@ -12,8 +12,8 @@ const Join = () => {
       icon: "🎓",
       description: "Ready to grow your research journey and dive deep into the world of microbial chemistry",
       requirements: [
-        "Strong background in chemistry, biology, or related field",
-        "Interest in computational approaches and data science",
+        "Strong background in chemistry, biochemistry, biology, or related field",
+        "Interest in computational data science",
         "Curiosity about host-microbe interactions",
         "Enthusiasm for interdisciplinary research"
       ],
@@ -30,7 +30,7 @@ const Join = () => {
             text: "Email me with a description of your research interests and a CV."
           },
           {
-            label: "Incoming/prospective students",
+            label: "Prospective students",
             text: "Check graduate programs here: ",
             link: "https://www.huck.psu.edu/graduate-programs"
           }
@@ -51,7 +51,7 @@ const Join = () => {
         "Competitive salary and benefits",
         "Research independence and mentorship opportunities", 
         "Access to state-of-the-art facilities",
-        "Career development support"
+        "Grant writing and Career development support"
       ],
       applicationInfo: {
         sections: [
@@ -69,10 +69,10 @@ const Join = () => {
     {
       title: "Undergraduate Researchers",
       icon: "💡",
-      description: "Want to volunteer and get hands-on experience in cutting-edge research",
+      description: "Want to get hands-on experience in cutting-edge research",
       requirements: [
         "Enrolled undergraduate student at Penn State",
-        "Strong academic performance",
+        "Good academic performance",
         "Interest in chemistry, biology, or data science",
         "Commitment to learning and growth"
       ],
@@ -85,7 +85,7 @@ const Join = () => {
       applicationInfo: {
         sections: [
           {
-            text: "Email me with a description of your research interests and a CV. Open to students interested in a summer internship."
+            text: "Email me with a description of your research interests, transcript and a CV. Open to students interested in a summer internship."
           }
         ]
       }
@@ -106,10 +106,10 @@ const Join = () => {
           className="text-center mb-12"
         >
           <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 text-gradient-hero">
-            Be Part of Our Journey
+            Be A Part of Our Scientific Journey
           </h1>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            If you are curious, creative, and eager to decode the hidden language of microbes - come join us!
+            If you are curious, creative, and eager to decode the hidden language of microbes - apply!
           </p>
         </motion.div>
 
