@@ -40,10 +40,10 @@ const Team = () => {
         <div className="mt-6 bg-secondary/5 border border-secondary/20 rounded-lg p-6 text-left">
           <h4 className="font-semibold text-lg mb-3 text-secondary">How to Apply:</h4>
           <p className="mb-2">
-            <strong>Current Penn State students:</strong> Email me with a description of your research interests and a CV.
+            <strong>Current Penn State students:</strong> Email me with a brief description of your research interests and your CV.
           </p>
           <p>
-            <strong>Incoming/prospective students:</strong> Check graduate programs here:{' '}
+            <strong>Prospective students:</strong> Check graduate programs here:{' '}
             <a 
               href="https://www.huck.psu.edu/graduate-programs" 
               target="_blank" 
@@ -65,7 +65,7 @@ const Team = () => {
         <div className="mt-6 bg-accent/5 border border-accent/20 rounded-lg p-6 text-left">
           <h4 className="font-semibold text-lg mb-3 text-accent">How to Apply:</h4>
           <p className="mb-3">
-            Email me with a one-page description of your research, a CV, and a sample publication.
+            Email me with a one-page description of your research, your CV, and a recent publication.
           </p>
           <p>
             I encourage postdoc applicants to explore fellowship opportunities at{' '}
@@ -91,7 +91,7 @@ const Team = () => {
         <div className="mt-6 bg-primary/5 border border-primary/20 rounded-lg p-6 text-left">
           <h4 className="font-semibold text-lg mb-3 text-primary">How to Apply:</h4>
           <p>
-            Email me with a description of your research interests and a CV. Open to students interested in a summer internship.
+            Email me with a description of your research interests, transcript and a CV. We are open to students interested in a summer internship.
           </p>
         </div>
       )
@@ -186,7 +186,7 @@ const Team = () => {
               
               <div className="md:col-span-2 prose prose-lg max-w-none text-foreground/90 leading-relaxed space-y-4">
                 <p>
-                  Ipsita Mohanty is an Assistant Professor of Pharmacology in the Department of Veterinary and Biomedical Sciences and the Department of Nutritional Sciences at Penn State University (University Park), where she leads the Mohanty Lab. Her group decodes how the gut microbiome communicates with the host by discovering the enzymes and metabolites that convey these messages—and by mapping how these signals impact human health.
+                  Ipsita Mohanty is an Assistant Professor of Pharmacology in the Department of Veterinary and Biomedical Sciences and the Department of Nutritional Sciences at Penn State University (University Park), where she leads the Mohanty Lab. Her group decodes how the gut microbiome communicates with the host by discovering the enzymes and metabolites that convey these messages and by mapping how these signals impact human health.
                 </p>
                 <p>
                   Trained at the interface of biochemistry, molecular biology, and data science, Dr. Mohanty integrates mass spectrometry-driven metabolomics, proteomics, and computational mining to uncover previously unknown microbial enzymes and specialized metabolites (including bile acids) that modulate host pathways.
@@ -265,7 +265,7 @@ const Team = () => {
             
             <div className="prose prose-lg max-w-none text-foreground/90 leading-relaxed">
               <p>
-                <strong>Mentoring Philosophy (E-S-I-A):</strong> I lead with <strong>Enthusiasm</strong>—curiosity, energy, and a culture that celebrates progress, not perfection. I am <strong>Student-centered</strong>: trainees co-design an Individual Development Plan, align projects with their goals, and receive transparent expectations on authorship, data practices, and timelines. My training is <strong>Integrative</strong>—combining mass spectrometry, microbiology, computation, and communication—through scaffolded independence, peer mentoring, and open, reproducible science. And I stay <strong>Adaptive</strong>: weekly 1:1s, rapid feedback loops, and quarterly goal reviews enable me to adjust scope, support, and pace as needs change, while maintaining psychological safety and inclusion. The aim is simple—help each person grow from learner to independent scientist who can discover, decode, and modulate microbial messages to improve human health.
+                <strong>Mentoring Philosophy (E-S-I-A):</strong> I lead with <strong>Enthusiasm</strong>:curiosity, energy, and a culture that celebrates progress, not perfection. I am <strong>Student-centered</strong>: trainees co-design an Individual Development Plan, align projects with their goals, and receive transparent expectations on authorship, data practices, and timelines. My training is <strong>Integrative</strong>:combining mass spectrometry, microbiology, computation, and communication through scaffolded independence, peer mentoring, and open, reproducible science. And I stay <strong>Adaptive</strong>: weekly 1:1s, rapid feedback loops, and quarterly goal reviews enable me to adjust scope, support, and pace as needs change, while maintaining psychological safety and inclusion. The aim is simple - to help each person grow from learner to independent scientist who are excited and confident to chart their own scientif journeys with rigor and ethics.
               </p>
             </div>
           </Card>
