@@ -19,7 +19,7 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Ready to join our mission or learn more about our research? We'd love to hear from you!
+            Ready to join our mission or learn more about our research? We will love to hear from you!
           </p>
         </motion.div>
 
@@ -43,7 +43,7 @@ const Contact = () => {
                     <div className="flex-1">
                       <h3 className="font-semibold text-lg text-foreground mb-2">Send Us an Email</h3>
                       <p className="text-muted-foreground mb-3">
-                        The best way to reach us is via email. Please include information about your background, research interests, and why you'd like to join our team.
+                        The best way to reach me is via email. Please include information about your current research background, research interests, and why you would like to join our team.
                       </p>
                       <a 
                         href="mailto:imm5615@psu.edu"
@@ -65,9 +65,9 @@ const Contact = () => {
                         <li>• Your full name and current position</li>
                         <li>• Position of interest (Graduate Student, Postdoc, etc.)</li>
                         <li>• Brief description of your research background</li>
-                        <li>• Your research interests and how they align with our lab</li>
-                        <li>• Why you'd like to join the Mohanty Lab</li>
-                        <li>• CV/Resume (attached to your email)</li>
+                        <li>• Your research interests and relevant publications (if any)</li>
+                        <li>• How can the Mohanty Lab benefit your research and career goals</li>
+                        <li>• CV (attached to your email)</li>
                       </ul>
                     </div>
                   </div>
