@@ -87,7 +87,7 @@ const Research = () => {
               </div>
 
               <p className="font-semibold text-lg">
-                Ultimately, we aim to deliver an open, community resource—an atlas of metabolites, enzymes, and pathways—that accelerates discovery and reveals modifiable levers for human health.
+                Ultimately, we aim to create an open-acess community resource which will be an atlas of metabolites, enzymes, and pathways that accelerates discovery and reveals modifiable levers for human health.
               </p>
 
               <p className="font-semibold text-lg">
@@ -136,7 +136,7 @@ const Research = () => {
 
             <div className="prose prose-lg max-w-none text-foreground/90 leading-relaxed space-y-6">
               <p>
-                Our lab focuses on discovering and characterizing the previously unknown microbial enzymes that generate specialized modified metabolites—the "messages" microbes send to the host. These molecules tune immunity, metabolism, and barrier function; when their composition shifts, so does health. We use an integrated omics strategy—pairing untargeted metabolomics with proteomics—to map enzyme activities to their products, reveal mechanisms, and identify targets that could inform drug discovery and precision nutrition. While our scope spans human health broadly, we will develop deep case studies in aging, and in how diet and environmental exposures perturb host-microbe chemistry and outcomes.
+                Our lab focuses on discovering and characterizing the previously unknown microbial enzymes that generate specialized modified metabolites, the "messages" microbes send to the host. These molecules tune immunity, metabolism, and barrier function; when their composition shifts, so does health. We use an integrated omics strategy - pairing untargeted metabolomics with proteomics - to map enzyme activities to their products, reveal mechanisms, and identify targets that could inform drug discovery and precision nutrition. While our scope spans human health broadly, we will develop deep case studies in aging, and in how diet and environmental exposures perturb host-microbe chemistry and outcomes.
               </p>
 
               <p>
@@ -206,11 +206,11 @@ const Research = () => {
               </p>
 
               <p>
-                We will profile how distinct dietary patterns and pharmacologic exposures (including microbiome-interactive agents) reconfigure microbial metabolism and host pathways by leveraging advanced computational tools in mass spectrometry. Designs will include controlled interventions in mouse models and analysis of available human datasets, with sex treated as a biological variable. We will employ a multi-pronged approach, combining untargeted metabolomics (across multiple organs and fluids), targeted bile acid panels, and integrative proteomics to identify key enzymes and pathways. This will enable a systems-level map of diet- and drug-induced shifts in microbially derived metabolites, highlighting candidate enzymes, receptors, and pathways for mechanistic follow-up and intervention.
+                We will profile how distinct dietary patterns and pharmacologic exposures (including microbiome-interactive agents) reconfigure microbial metabolism and host pathways by leveraging advanced computational tools in mass spectrometry. Designs will include controlled interventions in mouse models and analysis of available human datasets in public repositories and new clinical trials, with sex, age, bmi etc treated as a biological variable. We will employ a multi-pronged approach, combining untargeted metabolomics (across multiple organs and fluids), targeted bile acid panels, and integrative proteomics to identify key enzymes and pathways. This will enable a systems-level map of diet- and drug-induced shifts in microbially derived metabolites, highlighting candidate enzymes, receptors, and pathways for mechanistic follow-up and intervention.
               </p>
 
               <p>
-                We also have a key hypothesis in aging that we will investigate using taurine supplementation. Taurine is a key node in host–microbe chemistry (e.g., bile-acid conjugation) and is linked to physical and cognitive resilience. We will use taurine supplementation in aging mouse models as a mechanistic experiment. We will utilize untargeted LC-MS/MS metabolomics and data science approaches to identify key metabolites across multiple organs in our taurine-supplemented mice compared to control mice. We will obtain a detailed map of microbially modified bile acids (and other signaling metabolites) that shift in response to taurine availability and explore their role in aging biology. We will do this by quantifying muscle and blood mitochondrial function and integrating with bile-acid profiles to test whether taurine-driven chemical messaging aligns with improved respiration and bioenergetic readouts.
+                We also have a key hypothesis in aging that we will investigate using taurine supplementation. Taurine is a key node in host–microbe chemistry (e.g., bile-acid conjugation) and is linked to physical and cognitive resilience. We will use taurine supplementation in aging mouse models as a mechanistic experiment. We will utilize untargeted LC-MS/MS metabolomics and data-driven computational approaches to identify key metabolites across multiple organs in our taurine-supplemented mice compared to control mice. We will obtain a detailed map of microbially modified bile acids (and other signaling metabolites) that shift in response to taurine availability and explore their role in aging biology. We will do this by quantifying muscle and blood mitochondrial function and integrating with bile-acid profiles to test whether taurine-driven chemical messaging aligns with improved respiration and bioenergetic readouts in our mice study. Translation to humans will be achieved by mining LC-MS/MS aging datasets available in public repositories.
               </p>
 
               <p className="font-semibold text-lg">
