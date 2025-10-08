@@ -8,6 +8,35 @@ import MolecularBackground from '@/components/MolecularBackground';
 const Join = () => {
   const positions = [
     {
+      title: "Postdocs",
+      icon: "🔬",
+      description: "Excited to push boundaries in science and lead independent research projects",
+      requirements: [
+        "PhD in chemistry, biology, biochemistry, or related field",
+        "Experience with mass spectrometry or metabolomics preferred",
+        "Strong publication record",
+        "Independent research experience"
+      ],
+      benefits: [
+        "Competitive salary and benefits",
+        "Research independence and mentorship opportunities", 
+        "Access to state-of-the-art facilities",
+        "Grant writing and Career development support"
+      ],
+      applicationInfo: {
+        sections: [
+          {
+            text: "Email me with a one-page description of your research, a CV, and a sample publication."
+          },
+          {
+            text: "I encourage postdoc applicants to explore fellowship opportunities at ",
+            link: "https://postdoc.psu.edu/resources/external-funding/",
+            additionalText: " Please reach out to me before for discussing proposal ideas :)"
+          }
+        ]
+      }
+    },
+    {
       title: "Graduate Students",
       icon: "🎓",
       description: "Ready to grow your research journey and dive deep into the world of microbial chemistry",
@@ -33,35 +62,6 @@ const Join = () => {
             label: "Prospective students",
             text: "Check graduate programs here: ",
             link: "https://www.huck.psu.edu/graduate-programs"
-          }
-        ]
-      }
-    },
-    {
-      title: "Postdocs",
-      icon: "🔬",
-      description: "Excited to push boundaries in science and lead independent research projects",
-      requirements: [
-        "PhD in chemistry, biology, biochemistry, or related field",
-        "Experience with mass spectrometry or metabolomics preferred",
-        "Strong publication record",
-        "Independent research experience"
-      ],
-      benefits: [
-        "Competitive salary and benefits",
-        "Research independence and mentorship opportunities", 
-        "Access to state-of-the-art facilities",
-        "Grant writing and Career development support"
-      ],
-      applicationInfo: {
-        sections: [
-          {
-            text: "Email me with a one-page description of your research, a CV, and a sample publication."
-          },
-          {
-            text: "I encourage postdoc applicants to explore fellowship opportunities at ",
-            link: "https://postdoc.psu.edu/resources/external-funding/",
-            additionalText: " Please reach out to me before for discussing proposal ideas :)"
           }
         ]
       }

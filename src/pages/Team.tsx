@@ -32,31 +32,6 @@ const Team = () => {
 
   const teamSections = [
     {
-      title: "Graduate Students",
-      icon: "🎓",
-      color: "secondary", 
-      members: [],
-      applicationInfo: (
-        <div className="mt-6 bg-secondary/5 border border-secondary/20 rounded-lg p-6 text-left">
-          <h4 className="font-semibold text-lg mb-3 text-secondary">How to Apply:</h4>
-          <p className="mb-2">
-            <strong>Current Penn State students:</strong> Email me with a brief description of your research interests and your CV.
-          </p>
-          <p>
-            <strong>Prospective students:</strong> Check graduate programs here:{' '}
-            <a 
-              href="https://www.huck.psu.edu/graduate-programs" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-secondary hover:underline font-semibold"
-            >
-              https://www.huck.psu.edu/graduate-programs
-            </a>
-          </p>
-        </div>
-      )
-    },
-    {
       title: "Postdocs",
       icon: "🔬",
       color: "accent",
@@ -78,6 +53,31 @@ const Team = () => {
               https://postdoc.psu.edu/resources/external-funding/
             </a>
             . Please reach out to me beforehand to discuss proposal ideas.
+          </p>
+        </div>
+      )
+    },
+    {
+      title: "Graduate Students",
+      icon: "🎓",
+      color: "secondary", 
+      members: [],
+      applicationInfo: (
+        <div className="mt-6 bg-secondary/5 border border-secondary/20 rounded-lg p-6 text-left">
+          <h4 className="font-semibold text-lg mb-3 text-secondary">How to Apply:</h4>
+          <p className="mb-2">
+            <strong>Current Penn State students:</strong> Email me with a brief description of your research interests and your CV.
+          </p>
+          <p>
+            <strong>Prospective students:</strong> Check graduate programs here:{' '}
+            <a 
+              href="https://www.huck.psu.edu/graduate-programs" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-secondary hover:underline font-semibold"
+            >
+              https://www.huck.psu.edu/graduate-programs
+            </a>
           </p>
         </div>
       )
