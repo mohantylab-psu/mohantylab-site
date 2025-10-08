@@ -73,21 +73,21 @@ const Home = () => {
               style={{ willChange: 'transform, opacity' }}
             >
               <h2 className="text-xl sm:text-2xl font-display font-semibold mb-6 text-gradient-accent text-center sm:text-left">
-                🚀 We are on the lookout for:
+              We are hiring and welcome scientists from all backgrounds:
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
                 <div className="flex items-start space-x-3 p-3 rounded-lg bg-primary/5">
-                  <span className="font-medium text-sm sm:text-base">Graduate students ready to grow their research journey</span>
+                  <span className="font-medium text-sm sm:text-base">Postdocs excited to learn mass spectrometry and data science </span>
                 </div>
                 <div className="flex items-start space-x-3 p-3 rounded-lg bg-secondary/5">
-                  <span className="font-medium text-sm sm:text-base">Postdocs excited to push boundaries in science</span>
+                  <span className="font-medium text-sm sm:text-base">Graduate students ready to train in mass spectrometry and high-througput screening</span>
                 </div>
                 <div className="flex items-start space-x-3 p-3 rounded-lg bg-accent/5 sm:col-span-2 lg:col-span-1">
-                  <span className="font-medium text-sm sm:text-base">Undergraduates who want to volunteer and get hands-on experience</span>
+                  <span className="font-medium text-sm sm:text-base">Undergraduates wanting to get hands-on research experience in wet-lab and computational skills</span>
                 </div>
               </div>
               <p className="text-base sm:text-lg mb-6 text-center sm:text-left">
-                If you are curious, creative, and eager to decode the hidden language of microbes - come join us!
+                If you are curious, creative, and eager to decode the hidden language of microbes - reach out to know more!
               </p>
               <div className="text-center">
                 <Link to="/contact">
@@ -95,7 +95,7 @@ const Home = () => {
                     size="lg"
                     className="gradient-accent hover:shadow-glow transition-all duration-300 font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
                   >
-                    📩 Apply Today - Join Our Founding Team!
+                     Apply Today - Join Our Founding Team!
                   </Button>
                 </Link>
               </div>
@@ -129,7 +129,7 @@ const Home = () => {
             <div className="gradient-card/20 backdrop-blur-lg rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-card border border-primary/10 mb-8 sm:mb-10">
               <div className="prose prose-lg max-w-none text-foreground/90 leading-relaxed space-y-6">
                 <p>
-                  At the Mohanty Lab, we see science as a detective's craft - uncovering the hidden conversations between microbes and their host. Just as languages allow us to communicate with each other, microbes living inside us communicate with us using an undiscovered chemical vocabulary with profound consequences for our health and disease.
+                  At the Mohanty Lab, we see science as a combination of explorer's craft with meticulous rigor of a statistician  - uncovering the hidden conversations between microbes and their host. Just as languages allow us to communicate with each other, microbes living inside us communicate with us using an undiscovered chemical vocabulary with profound consequences for our health and disease.
                 </p>
                 
                 <p>
@@ -258,7 +258,7 @@ const Home = () => {
                 <div className="flex items-start space-x-3">
                   <span className="text-2xl mt-1">🔍</span>
                   <div>
-                    <strong>Why it's cool:</strong> Deoxycholic acid was the first microbial bile acid ever identified, proving that gut microbes don't just live alongside us - they actively reshape our chemistry. DCA can interact with host receptors like FXR and TGR5, influencing metabolism, energy balance, and even immunity. We also now know that DCA can be conjugated with a myriad of amino acids and amines.
+                    <strong>Why it's cool:</strong> Deoxycholic acid was the first microbial bile acid to be identified, proving that gut microbes don't just live alongside us - they actively reshape our chemistry. DCA can interact with host receptors like FXR and TGR5, influencing metabolism, energy balance, and even immunity. We also now know that DCA can be conjugated with a myriad of amino acids and amines.
                   </div>
                 </div>
               </div>
