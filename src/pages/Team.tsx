@@ -12,7 +12,7 @@ import Fun5Img from '@/assets/fun_5.jpeg';
 import Fun6Img from '@/assets/fun_6.jpg';
 import Fun7Img from '@/assets/fun_7.jpg';
 import MohantyIpsitaCV from '@/assets/Mohanty_Ipsita_CV.pdf';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Team = () => {
   // Preload the PI image for immediate rendering
@@ -20,6 +20,9 @@ const Team = () => {
     const img = new Image();
     img.src = IpsitaMohantyImg;
   }, []);
+
+  const [offset, setOffset] = useState(0);
+
   const funImages = [
     { src: Fun1Img, alt: "Lab Fun 1" },
     { src: Fun2Img, alt: "Lab Fun 2" },
@@ -29,6 +32,24 @@ const Team = () => {
     { src: Fun6Img, alt: "Lab Fun 6" },
     { src: Fun7Img, alt: "Lab Fun 7" },
   ];
+
+  // Seamless carousel animation
+  useEffect(() => {
+    const animate = () => {
+      setOffset(prev => {
+        const newOffset = prev + 0.02;
+        const singleSetWidth = 100 / 3; // Each set is 33.33% since we have 3 sets
+        // Reset seamlessly when first set has scrolled out of view
+        if (newOffset >= singleSetWidth) {
+          return newOffset - singleSetWidth;
+        }
+        return newOffset;
+      });
+    };
+
+    const intervalId = setInterval(animate, 16); // ~60fps
+    return () => clearInterval(intervalId);
+  }, []);
 
   const teamSections = [
     {
@@ -284,32 +305,20 @@ const Team = () => {
               Have fun. Do science.
             </h2>
             
-            <style>{`
-              @keyframes scroll-left {
-                0% {
-                  transform: translateX(0);
-                }
-                100% {
-                  transform: translateX(calc(-100% / 3));
-                }
-              }
-              .animate-scroll {
-                animation: scroll-left 25s linear infinite;
-                will-change: transform;
-              }
-              .animate-scroll:hover {
-                animation-play-state: paused;
-              }
-            `}</style>
-            
             <div className="overflow-hidden relative">
-              <div className="flex animate-scroll">
-                {/* Triple the images for truly seamless infinite loop */}
+              <div 
+                className="flex"
+                style={{
+                  transform: `translateX(-${offset}%)`,
+                  width: `${funImages.length * 3 * 20}%`
+                }}
+              >
+                {/* Triple the images for seamless infinite loop */}
                 {[...funImages, ...funImages, ...funImages].map((image, index) => (
                   <div 
                     key={index} 
                     className="flex-shrink-0 px-2"
-                    style={{ width: '20%' }}
+                    style={{ width: `${100 / (funImages.length * 3)}%` }}
                   >
                     <img 
                       src={image.src} 
