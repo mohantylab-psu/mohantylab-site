@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import MolecularBackground from '@/components/MolecularBackground';
-import IpsitaMohantyImg from '@/assets/Ipsita_Mohanty_final.png';
+import IpsitaMohantyImg from '@/assets/Ipsita_Mohanty_final_optimized.png';
 import MentoringPhilosophyImg from '@/assets/mentoring_philosophy.png';
 import Fun1Img from '@/assets/fun_1.jpg';
 import Fun2Img from '@/assets/fun_2.png';
