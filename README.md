@@ -175,8 +175,8 @@ Our lab focuses on:
 ## 🌐 Connect With Us
 
 - **Location:** Penn State University Park, Happy Valley, PA
-- **Website:** [Visit our lab website](#)
-- **Email:** [Contact us](./src/pages/Contact.tsx)
+- **Website:** [Visit our lab website](mohantylabpsu.org)
+- **Email:** [Contact us](mailto:imm5615@psu.edu)
 
 ---
 
