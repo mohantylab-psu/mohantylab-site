@@ -9,7 +9,7 @@
 [![Vite](https://img.shields.io/badge/Vite-5+-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3+-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 
-**[Visit Website](#) • [Research](./src/pages/Research.tsx) • [Team](./src/pages/Team.tsx) • [Publications](./src/pages/Publications.tsx) • [Join Us](./src/pages/Join.tsx)**
+**[Visit Website](https://www.mohantylabpsu.org) • [Research](https://mohantylabpsu.org/research) • [Team](https://mohantylabpsu.org/team) • [Publications](https://mohantylabpsu.org/publications) • [Join Us](https://mohantylabpsu.org/join)**
 
 ---
 
@@ -156,7 +156,7 @@ The Mohanty Lab is actively recruiting:
 - **🔬 Postdocs** — Push boundaries in metabolomics and data science
 - **📚 Undergraduates** — Get hands-on research experience
 
-If you're curious, creative, and eager to decode the hidden language of microbes — **[join our founding team!](./src/pages/Join.tsx)**
+If you're curious, creative, and eager to decode the hidden language of microbes — **[join our founding team!](https://mohantylabpsu.org/join)**
 
 ---
 
@@ -175,8 +175,8 @@ Our lab focuses on:
 ## 🌐 Connect With Us
 
 - **Location:** Penn State University Park, Happy Valley, PA
-- **Website:** [Visit our lab website](mohantylabpsu.org)
-- **Email:** [Contact us](mailto:imm5615@psu.edu)
+- **Website:** [https://www.mohantylabpsu.org](https://www.mohantylabpsu.org)
+- **Email:** [imm5615@psu.edu](mailto:imm5615@psu.edu)
 
 ---
 
