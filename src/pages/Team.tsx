@@ -13,6 +13,155 @@ import Fun6Img from '@/assets/fun_6.jpg';
 import Fun7Img from '@/assets/fun_7.jpg';
 import MohantyIpsitaCV from '@/assets/Mohanty_Ipsita_CV.pdf';
 import { useEffect, useState } from 'react';
+import { Award, BookOpen, Cloud, FileText, FlaskConical, GraduationCap, Linkedin, Mail, Microscope, Users } from 'lucide-react';
+
+type TeamMember = {
+  name: string;
+  dates: string;
+  title: string;
+  image: string;
+  summary: string;
+  details: string[];
+};
+
+const gradStudentImages = import.meta.glob('../assets/grad students/*', {
+  eager: true,
+  import: 'default',
+}) as Record<string, string>;
+
+const resolveGradStudentImage = (fragment: string) => {
+  const match = Object.entries(gradStudentImages).find(([path]) => path.includes(fragment));
+  return match?.[1] ?? '';
+};
+
+const sectionToneStyles = {
+  primary: {
+    label: 'text-primary',
+    heading: 'text-primary',
+    badge: 'border-primary/20 bg-primary/10 text-primary hover:bg-primary/10 hover:text-primary',
+    border: 'border-primary/15',
+    count: 'border-primary/15 bg-primary/5 text-primary/80 hover:bg-primary/5 hover:text-primary/80',
+  },
+  secondary: {
+    label: 'text-secondary',
+    heading: 'text-secondary',
+    badge: 'border-secondary/20 bg-secondary/10 text-secondary hover:bg-secondary/10 hover:text-secondary',
+    border: 'border-secondary/15',
+    count: 'border-secondary/15 bg-secondary/5 text-secondary/80 hover:bg-secondary/5 hover:text-secondary/80',
+  },
+  accent: {
+    label: 'text-accent',
+    heading: 'text-accent',
+    badge: 'border-accent/20 bg-accent/10 text-accent hover:bg-accent/10 hover:text-accent',
+    border: 'border-accent/15',
+    count: 'border-accent/15 bg-accent/5 text-accent/80 hover:bg-accent/5 hover:text-accent/80',
+  },
+} as const;
+
+const sakilImg = resolveGradStudentImage('6.42.24');
+const swatiImg = resolveGradStudentImage('6.42.43');
+const hunterImg = resolveGradStudentImage('6.43.01');
+
+const graduateStudents: TeamMember[] = [
+  {
+    name: 'Md Sakil Arman',
+    dates: 'Jan 2026-present',
+    title: 'Ph.D. Student, Molecular, Cellular, and Integrative Biosciences',
+    image: sakilImg,
+    summary:
+      'Md Sakil Arman is a Ph.D. student in the Molecular, Cellular, and Integrative Biosciences (MCIBS) program at Penn State University. He joined the Mohanty Lab in January 2026, and his research focuses on developing computational metabolomics pipelines to discover, characterize, and annotate diet-associated metabolite biomarkers and understand their impact on human health.',
+    details: [
+      'Sakil completed his B.Sc. (Honors) and M.Sc. (Thesis) degrees in Biochemistry and Molecular Biology from Shahjalal University of Science and Technology, Bangladesh.',
+      'Aside from research, he enjoys spending time with family, contributing to his community, playing games, and exploring natural landscapes such as lakes and mountains.',
+    ],
+  },
+  {
+    name: 'Swati Shyam Prasad',
+    dates: 'Feb 2026-present',
+    title: 'Ph.D. Student, Biochemistry, Microbiology, and Molecular Biology',
+    image: swatiImg,
+    summary:
+      'Swati Shyam Prasad is a Ph.D. student in the Biochemistry, Microbiology, and Molecular Biology (BMMB) program at Penn State University and is co-advised by Dr. Mohanty and Dr. McReynolds. She joined the Mohanty Lab in February 2026 following research training at inStem with Dr. Laxman.',
+    details: [
+      "She completed her undergraduate degree in Microbiology from Mount Carmel College (MCC), Bengaluru, India, and her master's degree in Human Disease Genetics from the Centre for Human Genetics (CHG), Bengaluru.",
+      'Her current research aims to understand taurine metabolism in the context of aging and integrate these insights with bile acid biology and the microbiome.',
+      'Outside of research, she enjoys lifting weights at the gym, reading, and attempting ice skating.',
+    ],
+  },
+];
+
+const labTechnicians: TeamMember[] = [
+  {
+    name: 'Hunter Caleb Trithart',
+    dates: 'Jan 2026-present',
+    title: 'Research Lab Technician',
+    image: hunterImg,
+    summary:
+      'Hunter is an experienced Research Lab Technician with a lifelong interest in science and a desire to advance scientific research.',
+    details: [
+      "In his undergrad, Hunter studied Biobehavioral Health and Biology at Penn State with a particular interest in human physiology and pharmacology.",
+      "After obtaining his Bachelor's degree, Hunter pursued his interest in science and medical biology, working at Penn State in Health and Molecular Biology labs.",
+      "Hunter brings his passion for scientific research, meticulous attention to detail, and strong work ethic to the Mohanty Lab. He is eager to further expand his expertise and contribute meaningfully to Dr. Mohanty's research efforts.",
+    ],
+  },
+];
+
+const MemberCard = ({ member, category, tone }: { member: TeamMember; category: string; tone: keyof typeof sectionToneStyles }) => {
+  const toneStyles = sectionToneStyles[tone];
+
+  return (
+    <div className="overflow-hidden rounded-2xl border border-border/60 bg-background/80 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+      <div className="grid gap-0 md:grid-cols-[220px,1fr] md:items-center">
+        <div className="flex h-full items-center justify-center p-4 sm:p-5 bg-background/60">
+          <div className="w-full overflow-hidden rounded-xl border border-border/60 bg-background">
+            <img
+              src={member.image}
+              alt={member.name}
+              className="aspect-[4/5] w-full object-cover object-center"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3 p-5 sm:p-6 md:p-7">
+          <div className="flex flex-col gap-2">
+            <p className={`text-xs font-semibold uppercase tracking-[0.25em] ${toneStyles.label}`}>
+              {category}
+            </p>
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <h3 className={`text-xl sm:text-2xl font-display font-semibold ${toneStyles.heading}`}>
+                  {member.name}
+                </h3>
+                <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
+                  {member.title}
+                </p>
+              </div>
+              <Badge variant="outline" className={`w-fit rounded-md border px-2.5 py-1 text-[10px] font-medium sm:text-xs shadow-none ${toneStyles.badge}`}>
+                {member.dates}
+              </Badge>
+            </div>
+          </div>
+
+          <p className="text-sm sm:text-base leading-relaxed text-foreground/80">
+            {member.summary}
+          </p>
+
+          <div className="border-t border-border/60 pt-3">
+            <ul className="space-y-2 text-xs sm:text-sm leading-relaxed text-foreground/75">
+              {member.details.map((detail) => (
+                <li key={detail} className="flex items-start gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary/70 shrink-0" />
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Team = () => {
   // Preload the PI image for immediate rendering
@@ -54,72 +203,35 @@ const Team = () => {
   const teamSections = [
     {
       title: "Postdocs",
-      icon: "🔬",
+      icon: Microscope,
       color: "accent",
       members: [],
-      applicationInfo: (
-        <div className="mt-6 bg-accent/5 border border-accent/20 rounded-lg p-6 text-left">
-          <h4 className="font-semibold text-lg mb-3 text-accent">How to Apply:</h4>
-          <p className="mb-3">
-            Email me with a one-page description of your research, your CV, and a recent publication.
-          </p>
-          <p>
-            I encourage postdoc applicants to explore fellowship opportunities at{' '}
-            <a 
-              href="https://postdoc.psu.edu/resources/external-funding/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-accent hover:underline font-semibold"
-            >
-              https://postdoc.psu.edu/resources/external-funding/
-            </a>
-            . Please reach out to me beforehand to discuss proposal ideas.
-          </p>
-        </div>
-      )
+      intro: "Postdoctoral positions in the Mohanty Lab focus on metabolomics, enzyme discovery, and mechanistic microbiome research."
     },
     {
       title: "Graduate Students",
-      icon: "🎓",
+      icon: GraduationCap,
       color: "secondary", 
-      members: [],
-      applicationInfo: (
-        <div className="mt-6 bg-secondary/5 border border-secondary/20 rounded-lg p-6 text-left">
-          <h4 className="font-semibold text-lg mb-3 text-secondary">How to Apply:</h4>
-          <p className="mb-2">
-            <strong>Current Penn State students:</strong> Email me with a brief description of your research interests and your CV.
-          </p>
-          <p>
-            <strong>Prospective students:</strong> Check graduate programs here:{' '}
-            <a 
-              href="https://www.huck.psu.edu/graduate-programs" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-secondary hover:underline font-semibold"
-            >
-              https://www.huck.psu.edu/graduate-programs
-            </a>
-          </p>
-        </div>
-      )
+      members: graduateStudents,
+      intro: "Our graduate students combine experimental and computational approaches to uncover how microbial chemistry shapes human health.",
+    },
+    {
+      title: "Lab Technicians",
+      icon: FlaskConical,
+      color: "accent",
+      members: labTechnicians,
+      intro: "Our lab technicians keep the experimental pipeline moving and support the day-to-day pace of discovery.",
     },
     {
       title: "Undergraduate Researchers",
-      icon: "📚",
+      icon: BookOpen,
       color: "primary",
       members: [],
-      applicationInfo: (
-        <div className="mt-6 bg-primary/5 border border-primary/20 rounded-lg p-6 text-left">
-          <h4 className="font-semibold text-lg mb-3 text-primary">How to Apply:</h4>
-          <p>
-            Email me with a description of your research interests, transcript and a CV. We are open to students interested in a summer internship.
-          </p>
-        </div>
-      )
+      intro: "Undergraduate researchers in the lab gain hands-on experience across wet-lab and computational projects."
     },
     {
       title: "Alumni",
-      icon: "🌟",
+      icon: Users,
       color: "secondary",
       members: []
     }
@@ -154,7 +266,9 @@ const Team = () => {
         >
           <Card className="gradient-card border-primary/10 shadow-glow p-6 sm:p-8 md:p-10">
             <div className="flex items-center mb-6">
-              <div className="text-4xl mr-4">👩🏽‍🔬</div>
+              <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl border border-primary/15 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 text-primary">
+                <Microscope className="h-6 w-6" aria-hidden="true" />
+              </div>
               <h2 className="text-3xl font-display font-bold text-gradient-hero">
                 Principal Investigator
               </h2>
@@ -176,7 +290,10 @@ const Team = () => {
                     href="mailto:imm5615@psu.edu" 
                     className="text-center px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-300"
                   >
-                    📧 imm5615@psu.edu
+                    <span className="inline-flex items-center justify-center gap-2">
+                      <Mail className="h-4 w-4" aria-hidden="true" />
+                      <span>imm5615@psu.edu</span>
+                    </span>
                   </a>
                   <a 
                     href="https://www.linkedin.com/in/mohantyipsita92" 
@@ -184,7 +301,10 @@ const Team = () => {
                     rel="noopener noreferrer"
                     className="text-center px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-300"
                   >
-                    💼 LinkedIn
+                    <span className="inline-flex items-center justify-center gap-2">
+                      <Linkedin className="h-4 w-4" aria-hidden="true" />
+                      <span>LinkedIn</span>
+                    </span>
                   </a>
                   <a 
                     href="https://bsky.app/profile/ipsitamohanty.bsky.social" 
@@ -192,7 +312,10 @@ const Team = () => {
                     rel="noopener noreferrer"
                     className="text-center px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-300"
                   >
-                    🦋 BlueSky
+                    <span className="inline-flex items-center justify-center gap-2">
+                      <Cloud className="h-4 w-4" aria-hidden="true" />
+                      <span>BlueSky</span>
+                    </span>
                   </a>
                   <a 
                     href={MohantyIpsitaCV} 
@@ -200,7 +323,10 @@ const Team = () => {
                     rel="noopener noreferrer"
                     className="text-center px-4 py-2 bg-accent/10 hover:bg-accent/20 rounded-lg transition-all duration-300 font-semibold"
                   >
-                    📄 View CV
+                    <span className="inline-flex items-center justify-center gap-2">
+                      <FileText className="h-4 w-4" aria-hidden="true" />
+                      <span>View CV</span>
+                    </span>
                   </a>
                 </div>
               </div>
@@ -241,19 +367,19 @@ const Team = () => {
                   <h4 className="text-xl font-semibold mb-4 text-accent">Awards and Recognitions</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start space-x-3">
-                      <span className="text-accent">🏆</span>
+                      <Award className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
                       <span><strong>Early Career Rising Star Award</strong>, Metabolomics Association of North America, 2024</span>
                     </li>
                     <li className="flex items-start space-x-3">
-                      <span className="text-accent">🏆</span>
+                      <Award className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
                       <span><strong>Elected Co-Chair</strong>, Gordon Research Seminar (GRS) Metabolomics and Human Health, 2027</span>
                     </li>
                     <li className="flex items-start space-x-3">
-                      <span className="text-accent">🏆</span>
+                      <Award className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
                       <span><strong>Bagwell Undergraduate Research Mentor Fellowship</strong>, Georgia Tech, 2021</span>
                     </li>
                     <li className="flex items-start space-x-3">
-                      <span className="text-accent">🏆</span>
+                      <Award className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
                       <span><strong>Institute Silver Medal</strong>, IIT Kharagpur, 2017</span>
                     </li>
                   </ul>
@@ -332,77 +458,94 @@ const Team = () => {
           </Card>
         </motion.section>
 
-        <div className="grid gap-8 max-w-5xl mx-auto">
-          {teamSections.map((section, index) => (
-            <motion.div
-              key={section.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <Card className="gradient-card border-primary/10 shadow-glow p-8">
-                <div className="flex items-center mb-6">
-                  <div className="text-4xl mr-4">{section.icon}</div>
-                  <h2 className="text-3xl font-display font-bold text-gradient-hero">
-                    {section.title}
-                  </h2>
-                </div>
-                
-                {section.members.length === 0 ? (
-                  <div className="text-center py-12">
-                    <div className="text-6xl mb-4 opacity-50">🌱</div>
-                    <p className="text-xl text-muted-foreground mb-4">
-                      We're growing our team!
-                    </p>
-                    <p className="text-foreground/80 mb-4">
-                      This section will be updated as we welcome new members to our research family.
-                    </p>
-                    <div className="inline-block mt-4 px-4 py-2 text-sm font-medium text-muted-foreground border border-border/50 rounded-md">
-                      Positions Available
-                    </div>
-                    {section.applicationInfo && section.applicationInfo}
-                  </div>
-                ) : (
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {section.members.map((member, memberIndex) => (
-                      <div key={memberIndex} className="text-center">
-                        {/* Team member cards will be added here */}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+        <div className="max-w-5xl mx-auto space-y-8 sm:space-y-10 pb-6 sm:pb-10">
+          {teamSections.map((section, index) => {
+            const SectionIcon = section.icon;
 
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mt-12 sm:mt-16"
-        >
-          <Card className="gradient-card border-accent/20 shadow-molecular p-10 max-w-3xl mx-auto">
-            <h3 className="text-3xl font-display font-bold mb-6 text-gradient-accent">
-              Want to Join Our Team?
-            </h3>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              We're always looking for passionate researchers who want to decode the hidden language of microbes. 
-              Whether you're a graduate student, postdoc, or undergraduate, we'd love to hear from you!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Badge className="bg-gradient-accent text-background font-semibold px-6 py-3 text-base cursor-pointer hover:shadow-glow transition-all duration-300">
-                📧 Contact Us About Opportunities
-              </Badge>
-              <Badge className="bg-gradient-hero text-background font-semibold px-6 py-3 text-base cursor-pointer hover:shadow-glow transition-all duration-300">
-                🔬 Learn About Our Research
-              </Badge>
-            </div>
-          </Card>
-        </motion.div>
+            return (
+              <motion.section
+                key={section.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.06, duration: 0.55 }}
+                viewport={{ once: true, margin: '-80px' }}
+                aria-labelledby={`${section.title.toLowerCase().replace(/\s+/g, '-')}-heading`}
+              >
+                <Card className={`border ${sectionToneStyles[section.color].border} bg-card/80 shadow-sm overflow-hidden`}>
+                  <div className="p-5 sm:p-7 md:p-8">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-6">
+                      <div className="flex items-center gap-4">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-border/60 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 text-foreground/80">
+                          <SectionIcon className="h-5 w-5" aria-hidden="true" />
+                        </div>
+                        <div>
+                          <h3 id={`${section.title.toLowerCase().replace(/\s+/g, '-')}-heading`} className={`text-2xl sm:text-3xl font-display font-semibold ${sectionToneStyles[section.color].heading}`}>
+                            {section.title}
+                          </h3>
+                          <p className="mt-1 text-sm sm:text-base text-muted-foreground">
+                            {section.intro ?? 'Section details and updates are listed below.'}
+                          </p>
+                        </div>
+                      </div>
+                      <Badge variant="outline" className={`w-fit rounded-md border px-2.5 py-1 text-xs font-medium shadow-none ${sectionToneStyles[section.color].count}`}>
+                        {section.members.length === 1 ? '1 member' : `${section.members.length} members`}
+                      </Badge>
+                    </div>
+
+                    {section.members.length === 0 ? (
+                      section.applicationInfo ? (
+                        <div className="rounded-2xl border border-border/60 bg-background/60 p-5 sm:p-6 text-sm sm:text-base text-foreground/85 leading-relaxed">
+                          {section.applicationInfo}
+                        </div>
+                      ) : null
+                    ) : (
+                      <div className="space-y-5">
+                        {section.members.map((member) => (
+                          <div key={member.name} className="mx-auto w-full max-w-3xl">
+                            <MemberCard member={member} category={section.title} tone={section.color} />
+                          </div>
+                        ))}
+
+                        {section.applicationInfo && (
+                          <div className="rounded-2xl border border-border/60 bg-background/50 p-5 sm:p-6 text-sm sm:text-base text-foreground/85 leading-relaxed">
+                            {section.applicationInfo}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </Card>
+              </motion.section>
+            );
+          })}
+
+          <motion.section
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: '-80px' }}
+            className="pt-2"
+          >
+            <Card className="border border-border/60 bg-background/80 shadow-sm overflow-hidden">
+              <div className="px-6 py-10 sm:px-8 sm:py-12 md:px-10 md:py-14 text-center">
+                <h3 className="text-2xl sm:text-3xl font-display font-semibold text-foreground">
+                  Want to join the lab?
+                </h3>
+                <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  We are always looking for thoughtful, energetic people who want to help decode microbial chemistry. Reach out if you see yourself contributing to the lab&apos;s work.
+                </p>
+                <div className="mt-7 flex flex-col sm:flex-row items-stretch justify-center gap-3 sm:gap-4">
+                  <Badge className="inline-flex items-center justify-center rounded-md border border-border/60 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 px-5 py-2.5 text-sm font-medium text-foreground">
+                    Contact us about opportunities
+                  </Badge>
+                  <Badge className="inline-flex items-center justify-center rounded-md border border-border/60 bg-gradient-to-r from-accent/10 via-primary/5 to-secondary/10 px-5 py-2.5 text-sm font-medium text-foreground">
+                    Learn about our research
+                  </Badge>
+                </div>
+              </div>
+            </Card>
+          </motion.section>
+        </div>
       </div>
     </div>
   );

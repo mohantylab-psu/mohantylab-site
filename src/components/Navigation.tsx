@@ -1,22 +1,43 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { Loader2, LogIn, LogOut, Menu, Shield, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { auth } from '@/lib/firebase';
+import { allowedAdminEmail, isAuthorizedCoordinatorEmail } from '@/lib/adminAuth';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { toast } from 'sonner';
+import { onAuthStateChanged, signInWithEmailAndPassword, signOut, type User } from 'firebase/auth';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isMobile = useIsMobile();
+  const [isAdminDialogOpen, setIsAdminDialogOpen] = useState(false);
+  const [authLoading, setAuthLoading] = useState(true);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [authEmail, setAuthEmail] = useState('');
+  const [authPassword, setAuthPassword] = useState('');
+  const [isSigningIn, setIsSigningIn] = useState(false);
   const location = useLocation();
+
+  const isCoordinator = Boolean(currentUser?.email && isAuthorizedCoordinatorEmail(currentUser.email));
 
   const navItems = [
     { id: 'home', label: 'Home', path: '/' },
     { id: 'research', label: 'Research', path: '/research' },
     { id: 'team', label: 'Team', path: '/team' },
     { id: 'publications', label: 'Publications & Media', path: '/publications' },
+    { id: 'news', label: 'News', path: '/news' },
     { id: 'join', label: 'Join Us', path: '/join' },
   ];
 
@@ -28,12 +49,59 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user?.email && isAuthorizedCoordinatorEmail(user.email)) {
+        setCurrentUser(user);
+      } else {
+        setCurrentUser(null);
+      }
+
+      setAuthLoading(false);
+    });
+
+    return unsubscribe;
+  }, []);
+
   const handleMobileMenuClose = () => {
     setIsMobileMenuOpen(false);
   };
 
   const isCurrentPath = (path: string) => {
     return location.pathname === path;
+  };
+
+  const handleSignIn = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    setIsSigningIn(true);
+
+    try {
+      const credential = await signInWithEmailAndPassword(auth, authEmail.trim(), authPassword);
+      const signedInEmail = credential.user.email?.trim().toLowerCase() ?? '';
+
+      if (allowedAdminEmail && signedInEmail !== allowedAdminEmail) {
+        await signOut(auth);
+        toast.error('This account is not authorized for admin access.');
+        return;
+      }
+
+      setAuthPassword('');
+      setIsAdminDialogOpen(false);
+      toast.success('Admin login successful.');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unable to sign in right now.';
+      toast.error(message);
+    } finally {
+      setIsSigningIn(false);
+    }
+  };
+
+  const handleSignOut = async () => {
+    await signOut(auth);
+    setCurrentUser(null);
+    setIsAdminDialogOpen(false);
+    toast.success('Admin logged out.');
   };
 
   // Close mobile menu when clicking outside
@@ -111,6 +179,80 @@ const Navigation = () => {
               </Button>
             </Link>
             
+            <Dialog open={isAdminDialogOpen} onOpenChange={setIsAdminDialogOpen}>
+              <DialogTrigger asChild>
+                <Button
+                  variant={isCoordinator ? 'default' : 'outline'}
+                  size="icon"
+                  className={isCoordinator ? 'bg-primary text-primary-foreground' : ''}
+                  aria-label="Admin login"
+                  title={isCoordinator ? 'Admin logged in' : 'Admin login'}
+                >
+                  <Shield className="h-4 w-4" />
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Admin Login</DialogTitle>
+                  <DialogDescription>
+                    {isCoordinator
+                      ? 'You are signed in as the lab coordinator.'
+                      : 'Sign in with the coordinator account to post news from the News page.'}
+                  </DialogDescription>
+                </DialogHeader>
+
+                {authLoading ? (
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Checking session...
+                  </div>
+                ) : isCoordinator ? (
+                  <div className="space-y-4">
+                    <p className="rounded-lg border border-primary/30 bg-primary/10 px-3 py-2 text-sm">
+                      Logged in as {currentUser?.email}
+                    </p>
+                    <Button type="button" variant="outline" className="w-full" onClick={handleSignOut}>
+                      <LogOut className="h-4 w-4" />
+                      Log out
+                    </Button>
+                  </div>
+                ) : (
+                  <form className="grid gap-4" onSubmit={handleSignIn}>
+                    <div className="grid gap-2">
+                      <Label htmlFor="nav-admin-email">Email</Label>
+                      <Input
+                        id="nav-admin-email"
+                        type="email"
+                        value={authEmail}
+                        onChange={(event) => setAuthEmail(event.target.value)}
+                        placeholder="coordinator@lab.edu"
+                        autoComplete="email"
+                      />
+                    </div>
+                    <div className="grid gap-2">
+                      <Label htmlFor="nav-admin-password">Password</Label>
+                      <Input
+                        id="nav-admin-password"
+                        type="password"
+                        value={authPassword}
+                        onChange={(event) => setAuthPassword(event.target.value)}
+                        placeholder="Password"
+                        autoComplete="current-password"
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      disabled={isSigningIn || !authEmail.trim() || !authPassword.trim()}
+                      className="w-full"
+                    >
+                      {isSigningIn ? <Loader2 className="h-4 w-4 animate-spin" /> : <LogIn className="h-4 w-4" />}
+                      Log in
+                    </Button>
+                  </form>
+                )}
+              </DialogContent>
+            </Dialog>
+
             {/* Theme Toggle */}
             <ThemeToggle size="md" />
             
@@ -218,6 +360,18 @@ const Navigation = () => {
                     <span className="text-sm font-medium text-muted-foreground">Theme</span>
                     <ThemeToggle size="sm" />
                   </div>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsAdminDialogOpen(true);
+                    }}
+                  >
+                    <Shield className="h-4 w-4" />
+                    {isCoordinator ? 'Admin logged in' : 'Admin login'}
+                  </Button>
                   <Link to="/contact" onClick={handleMobileMenuClose}>
                     <Button className="w-full gradient-accent hover:shadow-glow transition-all duration-300 font-semibold py-3">
                       Contact

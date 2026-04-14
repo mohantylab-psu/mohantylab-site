@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import MolecularBackground from '@/components/MolecularBackground';
+import LabGroupPic from '@/assets/Lab_group_pic.jpeg';
 
 const Join = () => {
   const positions = [
@@ -97,49 +98,62 @@ const Join = () => {
   return (
     <div className="relative min-h-screen pt-20 sm:pt-24">
       <MolecularBackground className="opacity-20" />
-      
-      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12 max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-5xl md:text-6xl font-display font-bold mb-6 text-gradient-hero">
-            Be A Part of Our Scientific Journey
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            If you are curious, creative, and eager to decode the hidden language of microbes - apply!
-          </p>
-        </motion.div>
 
-        {/* Hero Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <Card className="gradient-hero/10 border-primary/20 shadow-glow p-10 text-center">
-            <h2 className="text-3xl font-display font-bold mb-6 text-gradient-accent">
-              🚀 We are actively recruiting founding team members!
-            </h2>
-            <p className="text-lg text-foreground/90 mb-8 leading-relaxed">
-              Join us at the beautiful Penn State University Park campus in the heart of Happy Valley! 
-              Be part of our pioneering research from day one and help shape the future of microbial chemistry research.
-            </p>
-            <Button
-              asChild
-              size="lg"
-              className="gradient-accent hover:shadow-glow transition-all duration-300 font-semibold px-8 py-4 text-lg"
-            >
-              <Link to="/contact">
-                📩 Apply Today!
-              </Link>
-            </Button>
-          </Card>
-        </motion.div>
+      <motion.section
+        initial={{ opacity: 0, y: 32 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="mb-12 px-4 sm:px-6"
+      >
+        <Card className="relative mx-auto w-full max-w-[1600px] overflow-hidden border-primary/10 shadow-glow min-h-[82vh] sm:min-h-[86vh] lg:min-h-[90vh]">
+          <div className="absolute inset-0">
+            <img
+              src={LabGroupPic}
+              alt="Mohanty Lab group photo"
+                className="h-full w-full object-cover object-[50%_28%]"
+            />
+              <div className="absolute inset-0 bg-slate-950/88" />
+          </div>
+
+          <div className="relative flex min-h-[82vh] items-end px-6 py-10 sm:min-h-[86vh] sm:px-10 sm:py-14 md:min-h-[90vh] md:px-14 md:py-16 lg:px-16 lg:py-18">
+            <div className="max-w-3xl text-left text-white">
+              <p className="mb-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-white/75">
+                Join the Mohanty Lab
+              </p>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-tight text-white drop-shadow-[0_2px_28px_rgba(0,0,0,0.55)]">
+                Be A Part of Our Scientific Journey
+              </h1>
+              <p className="mt-6 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-white/92 drop-shadow-[0_1px_10px_rgba(0,0,0,0.35)]">
+                If you are curious, creative, and eager to decode the hidden language of microbes - apply!
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Badge className="rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white shadow-none backdrop-blur-sm">
+                  Collaborative science
+                </Badge>
+                <Badge className="rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white shadow-none backdrop-blur-sm">
+                  Hands-on mentorship
+                </Badge>
+                <Badge className="rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white shadow-none backdrop-blur-sm">
+                  Interdisciplinary discovery
+                </Badge>
+              </div>
+              <div className="mt-10">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white text-slate-950 hover:bg-white/90 hover:shadow-lg transition-all duration-300 font-semibold px-8"
+                >
+                  <Link to="/contact">
+                    Apply Today
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </motion.section>
+
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12 max-w-7xl">
 
         {/* Open Positions */}
                 {/* Position Cards */}

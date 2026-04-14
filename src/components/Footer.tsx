@@ -11,6 +11,7 @@ const Footer = () => {
     { label: 'Research', path: '/research' },
     { label: 'Team', path: '/team' },
     { label: 'Publications', path: '/publications' },
+    { label: 'News', path: '/news' },
     { label: 'Join Us', path: '/join' },
     { label: 'Contact', path: '/contact' },
   ];

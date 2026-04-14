@@ -71,6 +71,7 @@ This repository houses the **official Mohanty Lab website** — a modern, intera
 - ⚡ **Lightning Fast** — Powered by Vite for instant dev server and optimized builds
 - 🎭 **Smooth Animations** — Framer Motion for fluid, engaging interactions
 - 📧 **Contact Integration** — EmailJS for seamless communication
+- 📰 **Live News Posting** — Firebase-backed news feed with coordinator-only posting from the webpage
 - ♿ **Accessible** — Built with Radix UI primitives for excellent a11y
 
 ### 🛠️ Tech Stack
@@ -120,6 +121,38 @@ npm run build
 # Preview production build
 npm run preview
 ```
+
+### Firebase News Setup
+
+The News page reads and writes from Firebase Firestore, uses Firebase Authentication for admin posting, and uploads images to Firebase Storage.
+
+1. Create Firebase Auth user(s) in the Firebase console.
+2. Deploy the included Firestore and Storage rules from this repository.
+3. Apply the included Storage CORS config for local development uploads.
+
+This repository includes:
+
+- `firestore.rules`
+- `storage.rules`
+- `firebase.json`
+- `.firebaserc`
+- `storage.cors.json`
+
+Deploy rules:
+
+```bash
+npx firebase-tools login
+npx firebase-tools use mohanty-b186b
+npx firebase-tools deploy --only firestore:rules,storage
+```
+
+Apply Storage CORS (required for browser uploads from localhost):
+
+```bash
+gcloud storage buckets update gs://mohanty-b186b.appspot.com --cors-file=storage.cors.json
+```
+
+If you do not have `gcloud` installed, install Google Cloud CLI and run `gcloud auth login` first.
 
 ### 📂 Project Structure
 

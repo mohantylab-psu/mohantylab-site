@@ -12,6 +12,7 @@ import Home from "@/pages/Home";
 import Research from "@/pages/Research";
 import Team from "@/pages/Team";
 import Publications from "@/pages/Publications";
+import News from "@/pages/News";
 import Join from "@/pages/Join";
 import Contact from "@/pages/Contact";
 
@@ -25,7 +26,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
-          <Router>
+          <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
             <ScrollToTop />
             <div className="min-h-screen bg-background text-foreground font-sans antialiased flex flex-col">
               {/* Navigation */}
@@ -38,6 +39,7 @@ const App = () => {
                   <Route path="/research" element={<Research />} />
                   <Route path="/team" element={<Team />} />
                   <Route path="/publications" element={<Publications />} />
+                  <Route path="/news" element={<News />} />
                   <Route path="/join" element={<Join />} />
                   <Route path="/contact" element={<Contact />} />
                 </Routes>
